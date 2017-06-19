@@ -31,3 +31,5 @@ export default connect(
   () => ({}),
   mapDispatchToProps
 )(MenuSidebar);
+
+export {MenuSidebar, mapDispatchToProps};

@@ -73,7 +73,7 @@ const reduce = (state = defaultState, event) => {
 
 };
 
-const {middleware, enhancer, init} = installBrowserRouter([
+const {middleware, enhancer, init:handlePageLoad} = installBrowserRouter([
   ['/pages/:id', 'VIEW_ARTICLE', {}],
   ['/', 'VIEW_ARTICLE', {id: 'home'}]
 ]);
@@ -113,13 +113,11 @@ const saga = function *() {
 
 sagaMiddleware.run(saga);
 // this needs to be after sagaMiddleware.run so that sagas can handle our route-dispatched actions.
-init();
 
 const actions = {
   changeId: allActions.changeId
 };
 
-init();
 export default store;
 
 // store dependent helper function - thus defined after default export
@@ -135,5 +133,6 @@ export {
   reduce,
   actions,
   createDefaultState,
-  sagas
+  sagas,
+  handlePageLoad // we export this so we don't have to call it when running tests.
 };

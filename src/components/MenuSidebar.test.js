@@ -4,7 +4,7 @@ import React from 'react';
 import ezJson from 'enzyme-to-json';
 import {shallow} from 'enzyme';
 
-import MenuSidebar from './MenuSidebar';
+import {MenuSidebar} from './MenuSidebar';
 
 
 describe("menu does stuff you expect", () => {

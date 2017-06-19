@@ -14,14 +14,13 @@ it("should render menu and contents", () => {
 
 });
 
-it("mapStateToProps uses its own title and contents preferentially", () => {
+it("mapStateToProps loads correct props", () => {
   // given
   const state = {currentTitle: 'currentTitle', id: 'foo', contentMap: {'foo' : 'Foo Contents'}};
-  const ownProps = {title: 'Own Title', contents: 'Own Contents', menu: 'Menu'};
-  const expectedProps = {title: 'Own Title', contents: 'Own Contents', menu: 'Menu'};
+  const expectedProps = {title: 'currentTitle', contents: 'Foo Contents', menu: 'Menu'};
 
   // when
-  const returnedProps = mapStateToProps(state, ownProps);
+  const returnedProps = mapStateToProps(state, {menu: 'Menu'});
 
   //then
   expect(returnedProps).toEqual(expectedProps);
