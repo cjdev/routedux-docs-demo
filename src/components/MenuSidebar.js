@@ -1,35 +1,18 @@
 import React from 'react';
+import {VIEW_ARTICLE} from '../model/actions'
 import { SideNav, Link as SideNavLink } from '@cjdev/visual-stack/lib/components/SideNav';
-import { connect } from 'react-redux';
+import {ActionLink} from 'routedux';
 
-function MenuSidebar({items, changePage}) {
+export default function MenuSidebar({items}) {
   return (
     <SideNav>
       {items.map((item) => {
         return (
-          <SideNavLink key={item.id}>
-            <a onClick={
-                 (ev) => {
-                   ev.preventDefault();
-                   changePage(item.id);
-                 }
-              }>{item.title}</a>
-          </SideNavLink>
+          <ActionLink key={item.id} action={{type: VIEW_ARTICLE, id: item.id}}>
+            {item.title}
+          </ActionLink>
         );
       })}
     </SideNav>
   );
 };
-
-let mapDispatchToProps = (dispatch) => ({
-  changePage(id) {
-    dispatch({type: 'VIEW_ARTICLE', id});
-  }
-});
-
-export default connect(
-  () => ({}),
-  mapDispatchToProps
-)(MenuSidebar);
-
-export {MenuSidebar, mapDispatchToProps};
