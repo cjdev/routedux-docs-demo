@@ -23,7 +23,7 @@ function MenuSidebar({items, changePage}) {
 
 let mapDispatchToProps = (dispatch) => ({
   changePage(id) {
-    dispatch({type: 'CHANGE_ID', id});
+    dispatch({type: 'VIEW_ARTICLE', id});
   }
 });
 

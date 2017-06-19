@@ -12,7 +12,7 @@ import R from 'ramda';
 import pages from '../data/pages.json';
 
 import {
-  CHANGE_ID,
+  VIEW_ARTICLE,
   CONTENT_RECEIVED,
   actions as allActions
 } from './actions';
@@ -74,8 +74,8 @@ const reduce = (state = defaultState, event) => {
 };
 
 const {middleware, enhancer, init} = installBrowserRouter([
-  ['/pages/:id', 'CHANGE_ID', {}],
-  ['/', 'CHANGE_ID', {id: 'home'}]
+  ['/pages/:id', 'VIEW_ARTICLE', {}],
+  ['/', 'VIEW_ARTICLE', {id: 'home'}]
 ]);
 
 // create the saga middleware
@@ -109,7 +109,7 @@ const fetchArticle = function*({id}) {
 const sagas = {fetchArticle};
 
 const saga = function *() {
-  yield takeEvery(CHANGE_ID, fetchArticle);
+  yield takeEvery(VIEW_ARTICLE, fetchArticle);
 };
 
 sagaMiddleware.run(saga);
