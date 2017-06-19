@@ -1,6 +1,6 @@
 # Documentation Site Demo
 
-A demo of Routedux in a real project.
+A demo of [Routedux](https://github.com/cjdev/routedux) in a simple project.
 
 ## To run:
 
