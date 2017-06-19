@@ -97,7 +97,6 @@ const store = createStore(
   ));
 
 const fetchArticle = function*({id}) {
-  console.log('SAGA???');
   try {
     const content = yield call(loadArticle, `/pages/${id}.html`);
     yield put(createContentReceived(id, content));
