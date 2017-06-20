@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders side nav with correct links, and a header and content passed in 1`] = `
+<ApplicationLayout
+  sideNav={
+    <SideNav>
+      <ActionLink
+        action={
+          Object {
+            "id": "bar",
+            "type": "VIEW_ARTICLE",
+          }
+        }
+      >
+        A Bar's Life
+      </ActionLink>
+      <ActionLink
+        action={
+          Object {
+            "id": "foo",
+            "type": "VIEW_ARTICLE",
+          }
+        }
+      >
+        Foo
+      </ActionLink>
+      <ActionLink
+        action={
+          Object {
+            "id": "home",
+            "type": "VIEW_ARTICLE",
+          }
+        }
+      >
+        Our Doc Site
+      </ActionLink>
+    </SideNav>
+  }
+>
+  <Panel>
+    <Header>
+      Hello World
+    </Header>
+    <div
+      className="article-body"
+    >
+      <Body>
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<div>Some html</div>",
+            }
+          }
+        />
+      </Body>
+    </div>
+  </Panel>
+</ApplicationLayout>
+`;

@@ -122,9 +122,6 @@ export default store;
 
 // store dependent helper function - thus defined after default export
 const getContentsById = (id, state = null) => {
-  if (!state) {
-    state = store.getState();
-  }
   return state.contentMap[id] || null;
 };
 
