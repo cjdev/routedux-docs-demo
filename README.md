@@ -4,6 +4,11 @@ A demo of [Routedux](https://github.com/cjdev/routedux) in a simple project.
 
 ## To run:
 
+- `npm install`
+- `npm start`
+
+Or if you use [yarn](https://yarnpkg.com): 
+
 - `yarn`
 - `yarn start`
 
