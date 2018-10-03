@@ -1,10 +1,13 @@
 "use strict";
+import 'raf/polyfill';
 import React from 'react';
 import {shallow} from 'enzyme';
 import ezJson from 'enzyme-to-json';
 import {App, mapStateToProps} from './App';
-import R from 'ramda';
 
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+Enzyme.configure({ adapter: new Adapter() });
 
 const tableOfContents = [{"contentsUrl":"/pages/bar.html","id":"bar","title":"A Bar's Life"},{"contentsUrl":"/pages/foo.html","id":"foo","title":"Foo"},{"contentsUrl":"/pages/home.html","id":"home","title":"Our Doc Site"}];
 

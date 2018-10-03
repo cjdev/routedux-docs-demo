@@ -12,7 +12,7 @@ import {getContentsById} from './model';
 function App({title, contents, tableOfContents}) {
 
   const menu = (
-    <SideNav>
+    <SideNav> {}}>
       {tableOfContents.map((item) => {
         return (
           <ActionLink key={item.id} action={{type: VIEW_ARTICLE, id: item.id}}>

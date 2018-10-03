@@ -7,7 +7,7 @@ import {
 import createSagaMiddleware from 'redux-saga';
 import {call, put, takeEvery} from 'redux-saga/effects'
 
-import R from 'ramda';
+import * as R from 'ramda';
 
 import pages from '../data/pages.json';
 
