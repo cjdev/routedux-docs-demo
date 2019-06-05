@@ -3,7 +3,9 @@
 exports[`renders side nav with correct links, and a header and content passed in 1`] = `
 <ApplicationLayout
   sideNav={
-    <SideNav>
+    <SideNav
+      onClick={[Function]}
+    >
       <ActionLink
         action={
           Object {
