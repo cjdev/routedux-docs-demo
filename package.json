@@ -14,7 +14,7 @@
     "react-test-renderer": "^16.5.2",
     "redux": "^4.0.0",
     "redux-saga": "^1.1.1",
-    "routedux": "^0.2.16"
+    "routedux": "^1.0.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
