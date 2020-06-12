@@ -7,7 +7,7 @@ fi
 
 routedux="$PWD/$1"
 
-yarn || npm install
+npm install
 
 rm -rf node_modules/routedux
 ln -s "$routedux" node_modules/routedux
