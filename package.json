@@ -3,28 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@cjdev/visual-stack": "^2.7.6",
-    "front-matter": "^2.1.2",
+    "@cjdev/visual-stack": "^6.7.6",
+    "front-matter": "^4.0.0",
     "markdown": "^0.5.0",
     "raf": "^3.4.0",
-    "ramda": "^0.25.0",
+    "ramda": "^0.27.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-redux": "^5.0.5",
+    "react-redux": "^7.0.0",
     "react-test-renderer": "^16.5.2",
     "redux": "^4.0.0",
     "redux-saga": "^1.1.1",
     "routedux": "^1.0.4"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-flow": "^6.23.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-transform-react-jsx": "^7.0.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.10.1",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "enzyme-to-json": "^3.3.4",
-    "react-scripts": "^2.0.4"
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,19 +35,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "babel": {
-    "plugins": [
-      "transform-react-jsx"
-    ],
-    "presets": [
-      "env",
-      "flow"
-    ]
-  },
   "browserslist": [
-    ">0.2%",
+    ">10%",
     "not dead",
-    "not ie <= 11",
+    "not ie > 0",
+    "not ie_mob > 0",
     "not op_mini all"
   ]
 }
