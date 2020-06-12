@@ -1,6 +1,7 @@
 import { getContentsById, reduce, createDefaultState, sagas } from "./index";
 import { loadArticle } from "./api";
 import { actions } from "./actions";
+import { call, put } from "redux-saga/effects";
 
 it("reduce should handle content success", () => {
     //given
@@ -67,13 +68,12 @@ it("fetchArticle saga calls loadArticle with correct url and fires action", () =
     const iterator = fetchArticle({ id: "foo" });
 
     const called = iterator.next();
-    expect(called.value.CALL.fn).toEqual(loadArticle);
-    expect(called.value.CALL.args).toEqual(["/pages/foo.html"]);
+    expect(called.value).toEqual(call(loadArticle, "/pages/foo.html"));
 
     const action = iterator.next("Stub content");
 
-    expect(action.value.PUT.action).toEqual(
-        actions.createContentReceived("foo", "Stub content")
+    expect(action.value).toEqual(
+        put(actions.createContentReceived("foo", "Stub content"))
     );
 
     expect(iterator.next().done).toEqual(true);
