@@ -2,4 +2,5 @@
 id: foo
 title: Foo
 ---
-Foo!  This will never work!
+
+Foo! This will never work!

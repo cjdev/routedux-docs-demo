@@ -1,8 +1,8 @@
 // @flow
 
-'use strict';
+"use strict";
 
-import runnerBuilder from './prepare';
+import runnerBuilder from "./prepare";
 
 const runner = runnerBuilder();
 

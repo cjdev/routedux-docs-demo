@@ -10,43 +10,43 @@ import { connect } from "react-redux";
 import { getContentsById } from "./model";
 
 function App({ title, contents, tableOfContents }) {
-  const menu = (
-    <SideNav onClick={() => {}}>
-      {tableOfContents.map(item => {
-        return (
-          <ActionLink
-            key={item.id}
-            action={{ type: VIEW_ARTICLE, id: item.id }}
-          >
-            {item.title}
-          </ActionLink>
-        );
-      })}
-    </SideNav>
-  );
+    const menu = (
+        <SideNav onClick={() => {}}>
+            {tableOfContents.map((item) => {
+                return (
+                    <ActionLink
+                        key={item.id}
+                        action={{ type: VIEW_ARTICLE, id: item.id }}
+                    >
+                        {item.title}
+                    </ActionLink>
+                );
+            })}
+        </SideNav>
+    );
 
-  return (
-    <ApplicationLayout sideNav={menu}>
-      <Panel>
-        <Header>{title}</Header>
-        <div className="article-body">
-          <Body>
-            <div dangerouslySetInnerHTML={{ __html: contents }} />
-          </Body>
-        </div>
-      </Panel>
-    </ApplicationLayout>
-  );
+    return (
+        <ApplicationLayout sideNav={menu}>
+            <Panel>
+                <Header>{title}</Header>
+                <div className="article-body">
+                    <Body>
+                        <div dangerouslySetInnerHTML={{ __html: contents }} />
+                    </Body>
+                </div>
+            </Panel>
+        </ApplicationLayout>
+    );
 }
 
 const mapStateToProps = (
-  { currentTitle: title, id, ...state },
-  { tableOfContents }
+    { currentTitle: title, id, ...state },
+    { tableOfContents }
 ) => {
-  const foundContents = getContentsById(id, state);
-  const contents = foundContents ? foundContents : "Loading...";
+    const foundContents = getContentsById(id, state);
+    const contents = foundContents ? foundContents : "Loading...";
 
-  return { title, contents, tableOfContents };
+    return { title, contents, tableOfContents };
 };
 
 export default connect(mapStateToProps)(App);
