@@ -1,4 +1,4 @@
-import { ActionLink as _ActionLink } from "routedux";
+import { ActionLink as _ActionLink, createNav } from "routedux";
 import { createStore, applyMiddleware, compose } from "redux";
 
 import createSagaMiddleware from "redux-saga";
@@ -70,11 +70,11 @@ const reduce = (state = defaultState, event) => {
 
     return newState;
 };
-
-const { middleware, enhancer, init: handlePageLoad } = installBrowserRouter([
+const routesConfig = [
     ["/pages/:id", "VIEW_ARTICLE", {}],
     ["/", "VIEW_ARTICLE", { id: "home" }],
-]);
+];
+const { middleware, enhancer, init: handlePageLoad } = installBrowserRouter(routesConfig);
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -120,11 +120,13 @@ const getContentsById = (id, state = null) => {
 
 class ActionLink extends _ActionLink {
     constructor(props) {
-        super({ ...props });
+        super(props);
         this.store = store;
     }
 }
-
+console.log('before blowup')
+const {Navigation, withNav } = createNav(routesConfig, window);
+console.log('after blowup')
 export {
     getContentsById,
     reduce,
@@ -133,4 +135,6 @@ export {
     sagas,
     handlePageLoad, // we export this so we don't have to call it when running tests.
     ActionLink,
+    Navigation,
+    withNav
 };

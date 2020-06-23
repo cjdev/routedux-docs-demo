@@ -7,7 +7,7 @@ import { SideNav } from "@cjdev/visual-stack/lib/components/SideNav";
 import { Panel, Body, Header } from "@cjdev/visual-stack/lib/components/Panel";
 import ApplicationLayout from "@cjdev/visual-stack/lib/layouts/ApplicationLayout";
 import { connect } from "react-redux";
-import { getContentsById, ActionLink } from "./model";
+import { getContentsById, ActionLink, Navigation, withNav } from "./model";
 
 function App({ title, contents, tableOfContents }) {
     const menu = (
@@ -25,17 +25,24 @@ function App({ title, contents, tableOfContents }) {
         </SideNav>
     );
 
+    console.log('HERE?!')
+    const Widget = withNav(({route}) => {return <div>{JSON.stringify(route)}</div>});
+    console.log("Did this screw it up?");
+
     return (
+        <Navigation>
         <ApplicationLayout sideNav={menu}>
             <Panel>
                 <Header>{title}</Header>
                 <div className="article-body">
                     <Body>
                         <div dangerouslySetInnerHTML={{ __html: contents }} />
+                        <Widget/>
                     </Body>
                 </div>
             </Panel>
         </ApplicationLayout>
+        </Navigation>
     );
 }
 

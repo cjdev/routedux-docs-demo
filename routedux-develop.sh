@@ -7,8 +7,15 @@ fi
 
 routedux="$PWD/$1"
 
-npm install
+#npm install
 
 rm -rf node_modules/routedux
 ln -s "$routedux" node_modules/routedux
-cd "$routedux" && yarn watch
+
+
+cd "$routedux"
+rm -rf node_modules
+# needed b/c of issues with duplicate react copies
+npm install --only-prod
+
+npm run watch
